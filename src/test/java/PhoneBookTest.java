@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.*;
 
+import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -108,6 +109,36 @@ public class PhoneBookTest {
 
         // when:
         String actual = sut.findByName(NAME);
+
+        // then:
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void TestPrintAllNames() {
+        // given:
+        Map<String, String> book = new TreeMap<>();
+        final String NAME = "Константин";
+        final String TEL = "12345";
+
+        final String NAME_ONE = "Сергей";
+        final String TEL_ONE = "54321";
+
+        final String NAME_TWO = "Наталья";
+        final String TEL_TWO = "19283";
+
+        sut.add(NAME, TEL);
+        sut.add(NAME_ONE, TEL_ONE);
+        sut.add(NAME_TWO, TEL_TWO);
+
+        book.put(NAME, TEL);
+        book.put(NAME_ONE, TEL_ONE);
+        book.put(NAME_TWO, TEL_TWO);
+
+        Collection<String> expected = book.keySet();
+
+        // when:
+        Collection<String> actual = sut.printAllNames();
 
         // then:
         Assertions.assertEquals(expected, actual);
