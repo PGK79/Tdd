@@ -69,4 +69,29 @@ public class PhoneBookTest {
         // then:
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void TestFindByNumber() {
+        // given:
+        Map<String, String> book = new TreeMap<>();
+        final String NAME = "Константин";
+        final String TEL = "12345";
+        sut.add(NAME, TEL);
+
+        //Первый способ
+        // String expected = NAME;
+
+        //Второй позволил понять каким будет метод
+        book.put(NAME, TEL);
+        String expected = book.entrySet().stream()
+                .filter(entry -> TEL.equals(entry.getValue()))
+                .findFirst().map(Map.Entry::getKey)
+                .orElse(null);
+
+        // when:
+        String actual = sut.findByNumber(TEL);
+
+        // then:
+        Assertions.assertEquals(expected, actual);
+    }
 }
