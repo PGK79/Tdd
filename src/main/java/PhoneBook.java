@@ -27,7 +27,11 @@ public class PhoneBook {
         return book.get(name);
     }
 
-    public Collection<String> printAllNames() { // так вернуть проще
-        return null;
+    public Collection<String> printAllNames() {
+        Collection<String> names = book.keySet();
+        for (String name : names) { // по условиям задачи должен выводить имена
+            System.out.println(name);
+        }
+        return book.keySet(); // для возможности теста должен отдавать значение
     }
 }
