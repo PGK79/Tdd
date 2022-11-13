@@ -39,7 +39,7 @@ public class PhoneBookTest {
         int expected = book.size();
 
         // when:
-        boolean actual = sut.add(NAME, TEL);
+        int actual = sut.add(NAME, TEL);
 
         // then:
         Assertions.assertEquals(expected, actual);
@@ -64,7 +64,7 @@ public class PhoneBookTest {
         int expected = book.size();
 
         // when:
-        boolean actual = sut.add(NAME, TEL);
+        int actual = sut.add(NAME, TEL);
 
         // then:
         Assertions.assertEquals(expected, actual);
