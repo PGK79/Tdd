@@ -21,4 +21,8 @@ public class PhoneBook {
                 .findFirst().map(Map.Entry::getKey)
                 .orElse(null);
     }
+
+    public String findByName(String name) {
+        return null;
+    }
 }

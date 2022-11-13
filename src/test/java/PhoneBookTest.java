@@ -94,4 +94,22 @@ public class PhoneBookTest {
         // then:
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void TestFindByName() {
+        // given:
+        Map<String, String> book = new TreeMap<>();
+        final String NAME = "Константин";
+        final String TEL = "12345";
+        sut.add(NAME, TEL);
+
+        book.put(NAME, TEL);
+        String expected = book.get(NAME);
+
+        // when:
+        String actual = sut.findByName(NAME);
+
+        // then:
+        Assertions.assertEquals(expected, actual);
+    }
 }
