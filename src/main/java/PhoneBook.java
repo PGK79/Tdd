@@ -16,6 +16,9 @@ public class PhoneBook {
     }
 
     public String findByNumber(String tel) {
-        return null;
+        return book.entrySet().stream()
+                .filter(entry -> tel.equals(entry.getValue()))
+                .findFirst().map(Map.Entry::getKey)
+                .orElse(null);
     }
 }
